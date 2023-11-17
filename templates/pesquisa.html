@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+            rel="stylesheet"
+    />
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Encontre seu bloco no carnaval</title>
+    <link rel="stylesheet" href="../static/pesquisa.css" />
+    <script src="https://unpkg.com/phosphor-icons"></script>
+</head>
+<body>
+<header>
+    <div class="content">
+        <div class="top">
+            <p>give a feedback here</p>
+            <h1>Encontre os <span>RESULTADOS</span> das empressa procurada</h1>
+        </div>
+
+        <form class="search" method="POST" action="{{ url_for('pesquisa') }}">
+            <div class="search-field">
+                <label class="sr-only" for="name">Pesquise por nome</label>
+                <i class="ph-magnifying-glass-light"></i>
+                <input
+                        type="text"
+                        id="name"
+                        name="domain"
+                        placeholder="Pesquise por dominio aqui"
+                        required
+                />
+            </div>
+            <button class="btn primary" type="submit">Buscar agora</button>
+        </form>
+    </div>
+</header>
+
+<div class="resultados" id="resultados">
+    <!-- Aqui serão exibidos os gráficos -->
+    {% if grafico_day %}
+        {{ grafico_day }}
+    {% endif %}
+    {% if grafico_bars %}
+        {{ grafico_bars }}
+    {% endif %}
+</div>
+</body>
+</html>
